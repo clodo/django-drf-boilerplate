@@ -1,4 +1,4 @@
-from django.conf.urls import url, include
+from django.urls import include, path
 from rest_framework import routers
 from project.api import views
 
@@ -7,6 +7,6 @@ router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 
 urlpatterns = [
-    url('', include(router.urls)),
-    url('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
