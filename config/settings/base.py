@@ -49,6 +49,7 @@ DJANGO_APPS = (
 
 THIRD_PARTY_APPS = (
     'rest_framework',
+    'rest_auth'
 )
 
 LOCAL_APPS = (
@@ -152,5 +153,19 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = str(APPS_DIR('media'))
 
+# Rest Framework settings
 REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+#        'rest_framework.authentication.BasicAuthentication',
+#        'rest_framework.authentication.SessionAuthentication',
+    ),
 }
+
+# Rest Framework JWT settings
+JWT_AUTH = {
+    'JWT_AUTH_HEADER_PREFIX': 'Bearer',
+}
+
+# Rest Auth settings
+REST_USE_JWT = True
